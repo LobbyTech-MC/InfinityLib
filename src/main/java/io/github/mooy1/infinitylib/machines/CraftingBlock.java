@@ -29,7 +29,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 @ParametersAreNonnullByDefault
 public class CraftingBlock extends MenuBlock {
 
-    public static final ItemStack CLICK_TO_CRAFT = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&aClick To Craft!");
+    public static final ItemStack CLICK_TO_CRAFT = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&a点击合成!");
 
     @Setter
     protected MachineLayout layout = MachineLayout.CRAFTING_DEFAULT;
@@ -55,13 +55,13 @@ public class CraftingBlock extends MenuBlock {
                     onSuccessfulCraft(menu, output);
                     menu.pushItem(output, layout.outputSlots());
                     recipe.consume(input);
-                    p.sendMessage(ChatColor.GREEN + "Successfully Crafted: " + ItemUtils.getItemName(output));
+                    p.sendMessage(ChatColor.GREEN + "已合成: " + ItemUtils.getItemName(output));
                 } else {
-                    p.sendMessage(ChatColor.GOLD + "Not Enough Room!");
+                    p.sendMessage(ChatColor.GOLD + "空间不足!");
                 }
             }
         } else {
-            p.sendMessage(ChatColor.RED + "Invalid Recipe!");
+            p.sendMessage(ChatColor.RED + "无效的配方!");
         }
     }
 
